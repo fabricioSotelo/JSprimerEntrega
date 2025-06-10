@@ -2,6 +2,7 @@ const maxProductos = 10;
 let productos = [];
 
 function agregarProducto(nombre) {
+    nombre = nombre.toLowerCase();
     if (productos.length < maxProductos) {
         productos.push(nombre);
         alert(`Producto "${nombre}" agregado correctamente.`);
@@ -15,7 +16,7 @@ function mostrarProductos(lista) {
     if (lista.length === 0) {
         alert("La lista de productos está vacía.");
     } else {
-        let mensaje = "📦 Lista de productos:\n";
+        let mensaje = "Lista de productos:\n";
         for (let i = 0; i < lista.length; i++) {
             mensaje += `${i + 1}. ${lista[i]}\n`;
             console.log(`${i + 1}. ${lista[i]}`);
@@ -25,18 +26,20 @@ function mostrarProductos(lista) {
 }
 
 function buscarProducto(nombre) {
+    nombre = nombre.toLowerCase();
     if (productos.includes(nombre)) {
         alert(`El producto "${nombre}" está en la lista.`);
     } else {
-        alert(`El producto "${nombre}" NO se encontró.`);
+        alert(`El producto "${nombre}" no se encontró.`);
     }
 }
 
 function eliminarProducto(nombre) {
+    nombre = nombre.toLowerCase();
     const index = productos.indexOf(nombre);
     if (index !== -1) {
         productos.splice(index, 1);
-        alert(`Producto "${nombre}" eliminado correctamente.`);
+        alert(`El producto "${nombre}" se elimino correctamente.`);
     } else {
         alert(`El producto "${nombre}" no se encontró en la lista.`);
     }
@@ -69,4 +72,5 @@ do {
         alert("Opción inválida. Por favor elige entre 1 y 5.");
     }
 
-} while (opcion !== "4");
+} while (opcion !== "5");
+
